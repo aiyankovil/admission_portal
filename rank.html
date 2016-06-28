@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical CSS3 tables with rounded corners - demo</title>
+<style>
+
+body {
+    width: 600px;
+    margin: 40px auto;
+    font-family: 'trebuchet MS', 'Lucida sans', Arial;
+    font-size: 14px;
+    color: #444;
+}
+
+table {
+    *border-collapse: collapse; /* IE7 and lower */
+    border-spacing: 0;
+    width: 100%;    
+}
+
+.bordered {
+    border: solid #ccc 1px;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 1px #ccc; 
+    -moz-box-shadow: 0 1px 1px #ccc; 
+    box-shadow: 0 1px 1px #ccc;         
+}
+
+.bordered tr:hover {
+    background: #fbf8e9;
+    -o-transition: all 0.1s ease-in-out;
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;     
+}    
+    
+.bordered td, .bordered th {
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;    
+}
+
+.bordered th {
+    background-color: #dce9f9;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ebf3fc), to(#dce9f9));
+    background-image: -webkit-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:    -moz-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:     -ms-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:      -o-linear-gradient(top, #ebf3fc, #dce9f9);
+    background-image:         linear-gradient(top, #ebf3fc, #dce9f9);
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+    border-top: none;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+}
+
+.bordered td:first-child, .bordered th:first-child {
+    border-left: none;
+}
+
+.bordered th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;
+}
+
+.bordered th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.bordered th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.bordered tr:last-child td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.bordered tr:last-child td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+
+
+/*----------------------*/
+
+.zebra td, .zebra th {
+    padding: 10px;
+    border-bottom: 1px solid #f2f2f2;    
+}
+
+.zebra tbody tr:nth-child(even) {
+    background: #f5f5f5;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.8) inset; 
+    -moz-box-shadow:0 1px 0 rgba(255,255,255,.8) inset;  
+    box-shadow: 0 1px 0 rgba(255,255,255,.8) inset;        
+}
+
+.zebra th {
+    text-align: left;
+    text-shadow: 0 1px 0 rgba(255,255,255,.5); 
+    border-bottom: 1px solid #ccc;
+    background-color: #eee;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#eee));
+    background-image: -webkit-linear-gradient(top, #f5f5f5, #eee);
+    background-image:    -moz-linear-gradient(top, #f5f5f5, #eee);
+    background-image:     -ms-linear-gradient(top, #f5f5f5, #eee);
+    background-image:      -o-linear-gradient(top, #f5f5f5, #eee); 
+    background-image:         linear-gradient(top, #f5f5f5, #eee);
+}
+
+.zebra th:first-child {
+    -moz-border-radius: 6px 0 0 0;
+    -webkit-border-radius: 6px 0 0 0;
+    border-radius: 6px 0 0 0;  
+}
+
+.zebra th:last-child {
+    -moz-border-radius: 0 6px 0 0;
+    -webkit-border-radius: 0 6px 0 0;
+    border-radius: 0 6px 0 0;
+}
+
+.zebra th:only-child{
+    -moz-border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+}
+
+.zebra tfoot td {
+    border-bottom: 0;
+    border-top: 1px solid #fff;
+    background-color: #f1f1f1;  
+}
+
+.zebra tfoot td:first-child {
+    -moz-border-radius: 0 0 0 6px;
+    -webkit-border-radius: 0 0 0 6px;
+    border-radius: 0 0 0 6px;
+}
+
+.zebra tfoot td:last-child {
+    -moz-border-radius: 0 0 6px 0;
+    -webkit-border-radius: 0 0 6px 0;
+    border-radius: 0 0 6px 0;
+}
+
+.zebra tfoot td:only-child{
+    -moz-border-radius: 0 0 6px 6px;
+    -webkit-border-radius: 0 0 6px 6px
+    border-radius: 0 0 6px 6px
+}
+  
+</style>
+
+
+</head>
+<body>
+
+<?php 
+
+$con =mysql_connect("localhost","root","")or die("error found");
+mysql_select_db(db_reliance,$con)or die("error in database");
+
+$selq="select * from education_qualification";
+$res=mysql_query($selq);
+while($result=mysql_fetch_array($res))
+{
+
+		$appl_no=$result['application_no'];
+
+		$phy_mark=$result['physicsmark'];
+		$che_mark=$result['chemistrymark'];
+		$maths_mark=$result['mathsmark'];
+		$E_paper1=$result['paper1mark'];
+		$E_paper2=$result['paper2mark'];
+
+	    //equation should be supplied here
+		$calulated_mark=($phy_mark)+($che_mark)+($mathsmark)+($E_paper1)+($E_paper2);
+
+		
+		$insquery="insert into tbl_ranklist(application_no,cal_mark) values('".$appl_no."','".$calulated_mark."')";
+		mysql_query($insquery);
+
+
+}
+
+
+
+?>
+
+
+<h2>RANK LIST</h2>
+<table class="bordered">
+    <thead>
+
+    <tr>
+        <th>RANK</th>        
+        <th>NAME</th>
+        <th>APP NO></th>
+    </tr>
+    </thead>
+        <tr>
+        <td>1</td>        
+        <td>KURUVILLA</td>
+
+        <td>476</td>
+    </tr>        
+    <tr>
+        <td>2</td>         
+        <td>GEORGE</td>
+        <td>332</td>
+    </tr>
+    <tr>
+
+        <td>3</td>         
+        <td>ABRAHAM</td>
+        <td>339</td>
+    </tr>    
+    <tr>
+        <td>4</td> 
+        <td>DON</td>
+        <td>966</td>
+
+    </tr>
+    <tr>
+        <td>5</td> 
+        <td>SACHIN</td>
+        <td>294</td>
+    </tr>
+    <tr>
+        <td>6</td> 
+        <td> PHILIP</td>
+
+        <td>957</td>
+    </tr>
+    <tr>
+        <td>7</td> 
+        <td>GILBERT</td>
+        <td>993</td>
+    </tr>    
+    <tr>
+
+        <td>8</td> 
+        <td>AJO</td>
+        <td>975</td>
+    </tr>
+    <tr>
+        <td>9</td> 
+        <td>ASHWIN</td>
+
+        <td>008</td>
+    </tr>
+    <tr>
+        <td>10</td> 
+        <td>OOMMEN</td>
+        <td>003</td>
+    </tr> 
+
+</table>
+
+<br><br>
+
+
+<br>
+    
+
+</body>
+</html>
